@@ -1,0 +1,837 @@
+import { Header } from "@/components/layout/header";
+import { Sidebar } from "@/components/layout/sidebar";
+import { TableOfContents } from "@/components/layout/table-of-contents";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+
+export default function SettingUpPromptsPage() {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      <div className="flex">
+        {/* Left Sidebar */}
+        <aside className="w-64 border-r border-border bg-card/50 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden">
+          <Sidebar />
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 px-8 py-8 max-w-4xl">
+          <div className="space-y-6">
+            <div>
+              <p className="text-sm text-muted-foreground mb-2">Get Started</p>
+              <h1 className="text-4xl font-bold mb-4">Setting up your prompts</h1>
+              <p className="text-lg text-muted-foreground mb-8">
+                Prompts are the foundation of Peec AI. Everything we analyze starts with the questions you define.
+              </p>
+            </div>
+
+            {/* Introduction */}
+            <div className="space-y-4">
+              <p className="text-muted-foreground leading-relaxed">
+                This isn't like traditional SEO keyword tracking. Your results will take time to become statistically meaningful, and data may vary day-to-day since AI models are inherently random.
+              </p>
+            </div>
+
+            {/* Why prompts matter */}
+            <section id="why-prompts-matter" className="space-y-4">
+              <h2 className="text-2xl font-semibold mb-4">Why prompts matter</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  AI models don't rely on keywords — people ask full questions. Instead of searching "best running shoes," they ask "What are the best running shoes for marathon training under $200?"
+                </p>
+                <p>
+                  Visibility in AI means appearing in those conversations either as a named brand or by having your content used or cited.
+                </p>
+                <p>
+                  Prompts simulate real questions your audience might ask. Peec AI runs them across multiple AI models once every 24 hours, giving you fresh insights on how the models respond and who they highlight.
+                </p>
+              </div>
+            </section>
+
+            {/* Two ways to add prompts */}
+            <section id="two-ways-to-add-prompts" className="space-y-6">
+              <h2 className="text-2xl font-semibold mb-4">Two ways to add prompts</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Navigate to Prompts in your sidebar. From here, you can:
+              </p>
+
+              {/* 1. Use prompt suggestions */}
+              <div id="use-suggestions" className="space-y-4">
+                <h3 className="text-xl font-semibold">1. Use prompt suggestions</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our suggestion engine proposes prompts based on:
+                </p>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Your website</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Industry context</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Existing prompts in your workspace</span>
+                  </li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed">
+                  You can accept, reject, or ask for more suggestions.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Go to the Suggested tab to see suggested prompts. Click to Reject or Accept them. Any accepted prompts will get added to the Active prompts tab.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  If you don't see any suggestions, click the Generate suggestion button.
+                </p>
+              </div>
+
+              {/* 2. Add prompts manually */}
+              <div id="add-manually" className="space-y-4">
+                <h3 className="text-xl font-semibold">2. Add prompts manually</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Click Add in the top-right of the Prompts page. You can:
+                </p>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Add one or more prompts (use new line for each new prompt).</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>In IP Address, set the country you want each prompt to run from.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* 3. Upload prompts via CSV */}
+              <div id="upload-csv" className="space-y-4">
+                <h3 className="text-xl font-semibold">3. Upload prompts via CSV</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  You can bulk import prompts by uploading a CSV file.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  To do so, click Bulk Add in the top-right of the Prompts page, right next to the Add button.
+                </p>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Click anywhere in the upload box to open a system upload dialog or just drag-&-drop your CSV into the box</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Confirm that the preview follows your desired structure</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Any imported prompts will appear in your Active prompts tab and start running right away before joining the regular 24-hour prompt cycle.</span>
+                  </li>
+                </ul>
+
+                <div className="bg-card border border-border rounded-lg p-4">
+                  <h4 className="font-semibold mb-3">CSV Format:</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                    Your CSV file should be comma- or semicolon-separated and follow this format:
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground text-sm ml-4">
+                    <li className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span><strong>Row 1:</strong> Header row for naming your columns. It is ignored during import.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span><strong>Column 1:</strong> Prompt text (one per row, max 200 characters)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span><strong>Column 2:</strong> Location, using ISO 3166-1 alpha-2 two-letter country codes (e.g. US, DE). If this is blank or invalid, your workspace's default location is used.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span><strong>Columns 3-n:</strong> Tags to assign to each prompt. Add as many as you need.</span>
+                    </li>
+                  </ul>
+                  <p className="text-muted-foreground text-sm leading-relaxed mt-3">
+                    <strong>Note:</strong> Each prompt can be up to 200 characters. When adding multiple prompts, the counter shows the length of your longest prompt. If your desired country isn't available, contact us and we'll add it in the next update.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* Tagging your prompts */}
+            <section id="tagging-prompts" className="space-y-4">
+              <h2 className="text-2xl font-semibold mb-4">Tagging your prompts</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Tags help you organize prompts around themes, funnel stages, locations, or product areas — so you can analyze performance in isolation.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                For example, you could compare visibility for "email marketing" prompts versus "social media marketing" prompts, or compare German prompts versus US prompts.
+              </p>
+
+              <div id="how-to-tag" className="space-y-4">
+                <h3 className="text-xl font-semibold">How to tag prompts</h3>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Add/edit tags by clicking the Tag column in the prompt table.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Use bulk tagging by selecting multiple prompts and clicking Assign Tags.</span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            {/* Reading your prompts dashboard */}
+            <section id="reading-dashboard" className="space-y-6">
+              <h2 className="text-2xl font-semibold mb-4">Reading your prompts dashboard</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                The Prompts page shows all your prompts and their performance data. Here's what you'll see:
+              </p>
+
+              <div id="dashboard-overview" className="space-y-4">
+                <h3 className="text-xl font-semibold">Dashboard overview</h3>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Next prompt cycle:</strong> Timer showing when the next 24-hour prompt run begins.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Prompt usage:</strong> Shows how many active prompts you're using vs. your plan limit.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Active/Inactive tabs:</strong> Switch between running prompts and archived ones.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Suggested prompts:</strong> Generated prompt recommendations.</span>
+                  </li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed text-sm bg-card border border-border rounded-lg p-4">
+                  <strong>Note:</strong> Only active prompts count toward your prompt limit. Inactive prompts are archived but don't use your quota — a great way to experiment with new prompts while staying within your plan.
+                </p>
+              </div>
+
+              <div id="filters-controls" className="space-y-4">
+                <h3 className="text-xl font-semibold">Filters and controls</h3>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Tags filter:</strong> Filter prompts by specific or all tags.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Brand filter:</strong> View prompts for your brand or specific (or all) competitors.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Add button:</strong> Create new prompts manually.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div id="performance-table" className="space-y-4">
+                <h3 className="text-xl font-semibold">Prompt performance table</h3>
+                <p className="text-muted-foreground leading-relaxed">Each prompt shows:</p>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Position:</strong> Average ranking when your brand appears in AI answers (lower is better).</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Sentiment:</strong> Score from 1-100 based on how positively you're mentioned (higher is better).</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Visibility:</strong> Percentage of responses where your brand appeared.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Top:</strong> Icons showing the top 3 competitors mentioned for this prompt (hover to see exact percentages).</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Tags:</strong> Prompt categories for organization (click to create or add new tags).</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Geo:</strong> Country where the prompt is run from (geo proxies available for ChatGPT and AI Overviews only).</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Created:</strong> When the prompt was added.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div id="individual-performance" className="space-y-4">
+                <h3 className="text-xl font-semibold">Individual prompt performance</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Click into a specific prompt to see an in-depth performance dashboard. Just like all other dashboards, you can customize it using filters, download CSV files, and explore metrics.
+                </p>
+              </div>
+            </section>
+
+            {/* Managing your prompts */}
+            <section id="managing-prompts" className="space-y-6">
+              <h2 className="text-2xl font-semibold mb-4">Managing your prompts</h2>
+
+              <div id="individual-actions" className="space-y-4">
+                <h3 className="text-xl font-semibold">Individual prompt actions</h3>
+                <p className="text-muted-foreground leading-relaxed">For single prompts, you can:</p>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Archive prompts:</strong> Select your prompt and click Disable to turn it inactive while keeping historical data. To restore it, head into Inactive and click Enable.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Edit tags:</strong> Click into Tags in the table to add or remove tags for specific prompts.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div id="bulk-actions" className="space-y-4">
+                <h3 className="text-xl font-semibold">Bulk prompt actions</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Select multiple prompts using the checkboxes to:
+                </p>
+                <ul className="space-y-2 text-muted-foreground ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Group assign tags:</strong> Add tags to several prompts at once.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span><strong>Group disable:</strong> Turn multiple prompts inactive simultaneously.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div id="export-data" className="space-y-4">
+                <h3 className="text-xl font-semibold">Export prompt performance data</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Scroll to the bottom of all active or inactive prompts to download a CSV file containing the last 7 days of data for each set.
+                </p>
+              </div>
+            </section>
+
+            <div className="space-y-4">
+              <p className="text-muted-foreground leading-relaxed">
+                <strong>Next:</strong> Once your prompts are running, learn how to interpret your results.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                <strong>Learn more:</strong> Understand your metrics
+              </p>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between pt-8 border-t border-border">
+              <Link href="/quickstart" className="flex items-center text-muted-foreground hover:text-foreground">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Quickstart
+              </Link>
+              <Link href="#" className="flex items-center text-muted-foreground hover:text-foreground">
+                Adding competitors
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </main>
+                    <span className="text-2xl">📝</span>
+                  </div>
+                  <p>Add Prompt Dialog Screenshot</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Upload prompts via CSV */}
+            <section id="upload-csv">
+              <h2 className="text-2xl font-semibold mb-4">3. Upload prompts via CSV</h2>
+              
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>You can bulk import prompts by uploading a CSV file.</p>
+                
+                <p>
+                  To do so, click <strong>Bulk Add</strong> in the top-right of the Prompts page, right next to the <strong>Add</strong> button.
+                </p>
+                
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Click anywhere in the upload box to open a system upload dialog or just drag-&-drop your CSV into the box</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Confirm that the preview follows your desired structure</span>
+                  </li>
+                </ul>
+                
+                <p>
+                  Any imported prompts will appear in your <strong>Active prompts</strong> tab and start running right away before joining the regular 24-hour prompt cycle.
+                </p>
+                
+                <p>Your CSV file should be comma- or semicolon-separated and follow this format:</p>
+                
+                <div className="space-y-3 ml-4">
+                  <div>
+                    <strong>Row 1:</strong> Header row for naming your columns. It is ignored during import.
+                  </div>
+                  <div>
+                    <strong>Column 1:</strong> Prompt text (one per row, max 200 characters)
+                  </div>
+                  <div>
+                    <strong>Column 2:</strong> Location - using ISO 3166-1 alpha-2 two-letter country codes (e.g. <code className="bg-muted px-1 py-0.5 rounded">US</code>, <code className="bg-muted px-1 py-0.5 rounded">DE</code>).
+                  </div>
+                  <div className="ml-4 text-sm">
+                    If this is blank or invalid, your workspace's default location is used.
+                  </div>
+                  <div>
+                    <strong>Columns 3-n:</strong> Tags to assign to each prompt. Add as many as you need.
+                  </div>
+                  <div className="ml-4 space-y-1 text-sm">
+                    <div>If you add text to a cell, we will add it as a tag to the prompt</div>
+                    <div>We recommend using one column per tag.</div>
+                  </div>
+                </div>
+                
+                <div className="bg-muted/50 border border-border rounded-lg p-4">
+                  <strong>Note:</strong> Each prompt can be up to 200 characters. When adding multiple prompts, the counter shows the length of your longest prompt.
+                </div>
+                
+                <p>
+                  If your desired country isn't available, contact us and we'll add it in the next update.
+                </p>
+              </div>
+            </section>
+
+            {/* Tagging your prompts */}
+            <section id="tagging-prompts">
+              <h2 className="text-2xl font-semibold mb-4">Tagging your prompts</h2>
+              
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Tags help you organize prompts around themes, funnel stages, locations, or product areas — so you can analyze performance in isolation.
+                </p>
+                
+                <p>
+                  For example, you could compare visibility for "email marketing" prompts versus "social media marketing" prompts, or compare German prompts versus US prompts.
+                </p>
+                
+                <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">How to tag prompts</h3>
+                
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>
+                      Add/edit tags by clicking the <strong>Tag</strong> column in the prompt table.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Tag editing screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">🏷️</span>
+                    </div>
+                    <p>Prompt Table with Tag Editing Screenshot</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2 text-muted-foreground ml-4">
+                <div className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>
+                    Use <strong>bulk tagging</strong> by selecting multiple prompts and clicking <strong>Assign Tags</strong>.
+                  </span>
+                </div>
+              </div>
+
+              {/* Bulk tagging screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">📋</span>
+                    </div>
+                    <p>Bulk Tagging Screenshot</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Reading your prompts dashboard */}
+            <section id="reading-dashboard">
+              <h2 className="text-2xl font-semibold mb-4">Reading your prompts dashboard</h2>
+              
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  The <strong>Prompts</strong> page shows all your prompts and their performance data. Here's what you'll see:
+                </p>
+
+                <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Dashboard overview</h3>
+                
+                <ul className="space-y-3 ml-4">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <div>
+                      <strong className="text-foreground">Next prompt cycle:</strong> Timer showing when the next 24-hour prompt run begins.
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <div>
+                      <strong className="text-foreground">Prompt usage:</strong> Shows how many active prompts you're using vs. your plan limit.
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <div>
+                      <strong className="text-foreground">Active/Inactive tabs:</strong> Switch between running prompts and archived ones.
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <div>
+                      <strong className="text-foreground">Suggested prompts:</strong> Generated prompt recommendations.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Dashboard overview screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">📊</span>
+                    </div>
+                    <p>Dashboard Overview Screenshot</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-muted/50 border border-border rounded-lg p-4 text-muted-foreground">
+                <strong>Note:</strong> Only active prompts count toward your prompt limit. Inactive prompts are archived but don't use your quota — a great way to experiment with new prompts while staying within your plan.
+              </div>
+
+              <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Filters and controls</h3>
+              
+              <ul className="space-y-3 ml-4 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Tags filter:</strong> Filter prompts by specific or all tags.
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Brand filter:</strong> View prompts for your brand or specific (or all) competitors.
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Add button:</strong> Create new prompts manually.
+                  </div>
+                </li>
+              </ul>
+
+              {/* Filters screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">🔍</span>
+                    </div>
+                    <p>Filters and Controls Screenshot</p>
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Prompt performance table</h3>
+              
+              <p className="text-muted-foreground mb-4">Each prompt shows:</p>
+              
+              <ul className="space-y-3 ml-4 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Position:</strong> Average ranking when your brand appears in AI answers (lower is better).
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Sentiment:</strong> Score from 1-100 based on how positively you're mentioned (higher is better).
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Visibility:</strong> Percentage of responses where your brand appeared.
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Top:</strong> Icons showing the top 3 competitors mentioned for this prompt (hover to see exact percentages).
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Tags:</strong> Prompt categories for organization (click to create or add new tags).
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Geo:</strong> Country where the prompt is run from (geo proxies available for ChatGPT and AI Overviews only).
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Created:</strong> When the prompt was added.
+                  </div>
+                </li>
+              </ul>
+
+              {/* Performance table screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">📈</span>
+                    </div>
+                    <p>Performance Table Screenshot</p>
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Individual prompt performance</h3>
+              
+              <p className="text-muted-foreground mb-4">
+                Click into a specific prompt to see an in-depth performance dashboard. Just like all other dashboards, you can customize it using filters, download CSV files, and explore metrics.
+              </p>
+
+              {/* Individual performance screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">📋</span>
+                    </div>
+                    <p>Individual Prompt Performance Screenshot</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Managing your prompts */}
+            <section id="managing-prompts">
+              <h2 className="text-2xl font-semibold mb-4">Managing your prompts</h2>
+
+              <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Individual prompt actions</h3>
+              
+              <p className="text-muted-foreground mb-4">For single prompts, you can:</p>
+              
+              <ul className="space-y-3 ml-4 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Archive prompts:</strong> Select your prompt and click <strong>Disable</strong> to turn it inactive while keeping historical data. To restore it, head into <strong>Inactive</strong> and click <strong>Enable</strong>.
+                  </div>
+                </li>
+              </ul>
+
+              {/* Individual actions screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">⚙️</span>
+                    </div>
+                    <p>Individual Prompt Actions Screenshot</p>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="space-y-3 ml-4 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Edit tags:</strong> Click into <strong>Tags</strong> in the table to add or remove tags for specific prompts.
+                  </div>
+                </li>
+              </ul>
+
+              {/* Tag editing screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">🏷️</span>
+                    </div>
+                    <p>Tag Editing Screenshot</p>
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Bulk prompt actions</h3>
+              
+              <p className="text-muted-foreground mb-4">Select multiple prompts using the checkboxes to:</p>
+              
+              <ul className="space-y-3 ml-4 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Group assign tags:</strong> Add tags to several prompts at once.
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <div>
+                    <strong className="text-foreground">Group disable:</strong> Turn multiple prompts inactive simultaneously.
+                  </div>
+                </li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Export prompt performance data</h3>
+              
+              <p className="text-muted-foreground mb-4">
+                Scroll to the bottom of all active or inactive prompts to download a CSV file containing the last 7 days of data for each set.
+              </p>
+
+              {/* Export screenshot */}
+              <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
+                <div className="aspect-video bg-muted/20 flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
+                      <span className="text-2xl">📥</span>
+                    </div>
+                    <p>Export Data Screenshot</p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-muted-foreground">
+                <strong>Next:</strong> Once your prompts are running, learn how to interpret your results.
+              </p>
+            </section>
+
+            {/* Call-to-action */}
+            <div className="border border-border rounded-lg p-6 my-8">
+              <div className="flex items-center space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <span className="text-2xl">📊</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-lg mb-2">Learn more: Understand your metrics</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Dive deeper into interpreting your prompt performance data and analytics.
+                  </p>
+                </div>
+                <ArrowRight className="h-5 w-5 text-muted-foreground" />
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between pt-8 border-t border-border">
+              <Link href="/quickstart" className="flex items-center text-muted-foreground hover:text-foreground">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Quickstart
+              </Link>
+              <Link href="/add-competitors" className="flex items-center text-muted-foreground hover:text-foreground">
+                Adding competitors
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </main>
+
+        {/* Right Sidebar - Table of Contents */}
+        <aside className="w-64 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden p-6">
+          <div className="space-y-4">
+            <div>
+              <h3 className="font-semibold text-sm mb-4 flex items-center">
+                <div className="mr-2 h-4 w-4 border-2 border-current rounded-sm"></div>
+                On this page
+              </h3>
+              <div className="space-y-2">
+                <a href="#why-prompts-matter" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Why prompts matter
+                </a>
+                <a href="#two-ways-to-add" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Two ways to add prompts
+                </a>
+                <div className="pl-4 space-y-1">
+                  <a href="#use-suggestions" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    1. Use prompt suggestions
+                  </a>
+                  <a href="#add-manually" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    2. Add prompts manually
+                  </a>
+                  <a href="#upload-csv" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    3. Upload prompts via CSV
+                  </a>
+                </div>
+                <a href="#tagging-prompts" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Tagging your prompts
+                </a>
+                <div className="pl-4 space-y-1">
+                  <a href="#how-to-tag" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    How to tag prompts
+                  </a>
+                </div>
+                <a href="#reading-dashboard" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Reading your prompts dashboard
+                </a>
+                <div className="pl-4 space-y-1">
+                  <a href="#dashboard-overview" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Dashboard overview
+                  </a>
+                  <a href="#filters-controls" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Filters and controls
+                  </a>
+                  <a href="#performance-table" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Prompt performance table
+                  </a>
+                  <a href="#individual-performance" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Individual prompt performance
+                  </a>
+                </div>
+                <a href="#managing-prompts" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Managing your prompts
+                </a>
+                <div className="pl-4 space-y-1">
+                  <a href="#individual-actions" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Individual prompt actions
+                  </a>
+                  <a href="#bulk-actions" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Bulk prompt actions
+                  </a>
+                  <a href="#export-data" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Export prompt performance data
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  );
+}
