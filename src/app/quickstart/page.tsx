@@ -8,18 +8,18 @@ export default function QuickstartPage() {
     <div className="min-h-screen bg-background">
       <Header />
       <div className="flex">
-        {/* Left Sidebar */}
-        <aside className="w-64 border-r border-border bg-card/50 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden">
+        {/* Left Sidebar - Hidden on mobile */}
+        <aside className="hidden md:block w-64 border-r border-border bg-card/50 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden">
           <Sidebar />
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 px-8 py-8 max-w-4xl">
+        <main className="flex-1 px-4 md:px-8 py-6 md:py-8 max-w-4xl">
           <div className="space-y-6">
             <div>
               <p className="text-sm text-muted-foreground mb-2">Get Started</p>
-              <h1 className="text-4xl font-bold mb-4">Quickstart</h1>
-              <p className="text-lg text-muted-foreground mb-8">
+              <h1 className="text-2xl md:text-4xl font-bold mb-4">Quickstart</h1>
+              <p className="text-base md:text-lg text-muted-foreground mb-8">
                 Get up and running with Peec AI in minutes. Follow this guide to set up your first analytics dashboard.
               </p>
             </div>

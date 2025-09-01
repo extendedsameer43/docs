@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   description: "The #1 AI search analytics tool for marketing teams and agencies.",
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased mobile-scroll`}
       >
         {children}
       </body>
