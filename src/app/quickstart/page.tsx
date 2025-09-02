@@ -1,9 +1,17 @@
 import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
+import { TableOfContents } from "@/components/layout/table-of-contents";
+import { ThemeImage } from "@/components/ui/theme-image";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 export default function QuickstartPage() {
+  const tocItems = [
+    { title: "Set up your Workspace", href: "#step-1", level: 0 },
+    { title: "Configure Analytics & Monitoring", href: "#step-2", level: 0 },
+    { title: "Create your first prompts", href: "#step-3", level: 0 },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -20,23 +28,41 @@ export default function QuickstartPage() {
               <p className="text-sm text-muted-foreground mb-2">Get Started</p>
               <h1 className="text-2xl md:text-4xl font-bold mb-4">Quickstart</h1>
               <p className="text-base md:text-lg text-muted-foreground mb-8">
-                Get up and running with Peec AI in minutes. Follow this guide to set up your first analytics dashboard.
+                Get up and running with Nudg3 in minutes. Set up your workspace, configure analytics, and start monitoring your brand visibility.
               </p>
             </div>
 
             {/* Introduction */}
             <div className="space-y-4 mb-8">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                The fastest way to understand your brand's AI search presence.
+                The fastest way to start monitoring your brand's visibility and competitive landscape.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Peec AI shows you how your brand appears when people ask AI questions about your industry.
-                Set up your workspace, create prompts, and get your first visibility data.
+                Nudg3 provides comprehensive brand analytics, competitive intelligence, and AI-powered insights to help you understand your market position.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                After completing this guide, you'll have prompts running and initial data showing how your brand appears across AI models.
+                After completing this guide, you'll have a fully configured workspace with analytics running and initial data showing your brand performance.
               </p>
             </div>
+
+            {/* Getting Started Video */}
+            <section className="my-8">
+              <h2 className="text-xl font-semibold mb-4">Getting Started with NUDG3</h2>
+              <div className="bg-card border border-border rounded-lg overflow-hidden">
+                <div className="aspect-video">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/ScMzIvxBSi4"
+                    title="Getting Started with NUDG3 - Quickstart Guide"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
+                </div>
+              </div>
+            </section>
 
             {/* Content Sections */}
             <div className="space-y-12">
@@ -53,55 +79,52 @@ export default function QuickstartPage() {
                 <div className="space-y-4 text-muted-foreground leading-relaxed ml-12">
                   <div className="bg-muted/50 border border-border rounded-lg p-4">
                     <p className="font-medium text-foreground mb-2">
-                      The workspace name must exactly match your brand.
+                      Your workspace is the central hub for all your brand analytics and team collaboration.
                     </p>
                     <p>
-                      It is the term we use when analyzing responses, so it's important that it reflects your actual brand.
-                    </p>
-                    <p className="mt-2">
-                      You'll also see your brand listed under "Competitors" because our system treats your brand as one of the competitors during the analysis process.
+                      Configure your workspace settings to ensure accurate brand monitoring and proper team access controls.
                     </p>
                   </div>
                   
-                  <p>Define your brand basics in the Workspace settings:</p>
+                  <p>Configure your brand and workspace settings:</p>
                   
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start">
                       <span className="mr-2">•</span>
                       <div>
-                        <strong className="text-foreground">Brand name:</strong> The name of the brand exactly as you want us to look for it in AI responses.
+                        <strong className="text-foreground">Brand Information:</strong> Set your brand name, logo, and primary domain for accurate tracking.
                       </div>
                     </li>
                     <li className="flex items-start">
                       <span className="mr-2">•</span>
                       <div>
-                        <strong className="text-foreground">Domain:</strong> Brand's main website domain.
+                        <strong className="text-foreground">Team Management:</strong> Invite team members and configure their permissions and access levels.
                       </div>
                     </li>
                     <li className="flex items-start">
                       <span className="mr-2">•</span>
                       <div>
-                        <strong className="text-foreground">IP Address:</strong> Choose where to run prompts from.
+                        <strong className="text-foreground">Data Sources:</strong> Connect your analytics sources and configure data collection preferences.
                       </div>
                     </li>
                     <li className="flex items-start">
                       <span className="mr-2">•</span>
                       <div>
-                        <strong className="text-foreground">Models:</strong> Select which AI models to track based on your plan.
+                        <strong className="text-foreground">Notifications:</strong> Set up alerts for important brand mentions and performance changes.
                       </div>
                     </li>
                   </ul>
                 </div>
 
                 {/* Workspace setup screenshot */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden ml-12 mt-6">
-                  <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
-                        <span className="text-2xl">⚙️</span>
-                      </div>
-                      <p>Workspace Settings Screenshot</p>
-                    </div>
+                <div className="bg-gradient-to-br from-muted/20 to-muted/40 border border-border rounded-lg overflow-hidden ml-12 mt-6 p-4">
+                  <div className="aspect-video bg-background/50 rounded-md">
+                    <ThemeImage
+                      darkSrc="/images/workspace-setup-dark.png"
+                      lightSrc="/images/workspace-setup-light.png"
+                      alt="Workspace Configuration Interface"
+                      className="w-full h-full object-contain rounded-md shadow-sm"
+                    />
                   </div>
                 </div>
               </section>
@@ -112,67 +135,52 @@ export default function QuickstartPage() {
                     2
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-semibold mb-4">Step 2: Create your first prompts</h2>
+                    <h2 className="text-2xl font-semibold mb-4">Step 2: Configure Analytics & Monitoring</h2>
                   </div>
                 </div>
                 
                 <div className="space-y-4 text-muted-foreground leading-relaxed ml-12">
                   <p>
-                    Prompts are the actual questions people type into ChatGPT, Perplexity, Google, and other AI tools — they're essential for generating your data.
+                    Set up your brand monitoring and competitive analysis to start collecting valuable insights about your market position and visibility.
                   </p>
                   
                   <div className="bg-muted/50 border border-border rounded-lg p-4">
-                    <p className="font-medium text-foreground mb-1">For example:</p>
-                    <p className="italic">"What project management tool would be best for a remote team of 10 people with a tight budget?"</p>
+                    <p className="font-medium text-foreground mb-1">Key Analytics to Configure:</p>
+                    <ul className="space-y-1 mt-2">
+                      <li>• Brand mention tracking across multiple channels</li>
+                      <li>• Competitor performance monitoring</li>
+                      <li>• Source reliability and performance metrics</li>
+                      <li>• AI model response analysis</li>
+                    </ul>
                   </div>
                   
                   <p>
-                    Navigate to the <strong>Prompts</strong> page in your sidebar and start with 3-5 questions where you'd want your brand to appear.
+                    Navigate to the <strong>Dashboard</strong> to configure your analytics preferences and start monitoring.
                   </p>
                   
                   <div>
-                    <h3 className="font-semibold text-foreground text-lg mb-3">Quick start options:</h3>
+                    <h3 className="font-semibold text-foreground text-lg mb-3">Configuration Options:</h3>
                     
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <span className="mr-2">•</span>
                         <div>
-                          <strong className="text-foreground">Use suggestions:</strong> Accept prompts we generate based on your website and industry.
+                          <strong className="text-foreground">Automated Setup:</strong> Use our intelligent configuration based on your industry and brand profile.
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <span className="mr-2">•</span>
+                        <div>
+                          <strong className="text-foreground">Custom Configuration:</strong> Manually set up specific metrics and monitoring parameters.
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Suggestions screenshot */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden ml-12 mt-6">
-                  <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
-                        <span className="text-2xl">💡</span>
-                      </div>
-                      <p>Prompt Suggestions Screenshot</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="ml-12 mt-6">
                   <div className="flex items-start space-x-3 text-muted-foreground">
                     <span className="mr-2">•</span>
                     <div>
                       <strong className="text-foreground">Add manually:</strong> Click <strong>Add</strong> and enter your own questions.
-                    </div>
-                  </div>
-                </div>
-
-                {/* Manual add screenshot */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden ml-12 mt-6">
-                  <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
-                        <span className="text-2xl">✏️</span>
-                      </div>
-                      <p>Manual Add Prompts Screenshot</p>
                     </div>
                   </div>
                 </div>
@@ -184,14 +192,47 @@ export default function QuickstartPage() {
                     3
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-semibold mb-4">Step 3: Review your Dashboard</h2>
+                    <h2 className="text-2xl font-semibold mb-4">Step 3: Create your first prompts</h2>
                   </div>
                 </div>
                 
                 <div className="space-y-4 text-muted-foreground leading-relaxed ml-12">
                   <p>
-                    Within 24 hours, check your dashboard for your first visibility data. Learn how to read your results in our dashboard guide.
+                    Create targeted prompts to guide AI responses and ensure consistent, high-quality interactions with your brand content.
                   </p>
+                  
+                  <div className="bg-muted/50 border border-border rounded-lg p-4">
+                    <p className="font-medium text-foreground mb-1">Prompt Best Practices:</p>
+                    <ul className="space-y-1 mt-2">
+                      <li>• Be specific about your brand voice and messaging</li>
+                      <li>• Include key product features and differentiators</li>
+                      <li>• Define your target audience and use cases</li>
+                      <li>• Test prompts with different scenarios</li>
+                    </ul>
+                  </div>
+                  
+                  <p>
+                    Navigate to <strong>Setup Prompts</strong> to create and manage your prompt library.
+                  </p>
+
+                  <div className="flex items-start space-x-3 text-muted-foreground">
+                    <span className="mr-2">•</span>
+                    <div>
+                      <strong className="text-foreground">Add manually:</strong> Click <strong>Add</strong> and enter your own questions.
+                    </div>
+                  </div>
+                </div>
+
+                {/* Manual add prompts screenshot */}
+                <div className="bg-gradient-to-br from-muted/20 to-muted/40 border border-border rounded-lg overflow-hidden ml-12 mt-6 p-4">
+                  <div className="aspect-video bg-background/50 rounded-md">
+                    <ThemeImage
+                      darkSrc="/images/add-prompts-dark.png"
+                      lightSrc="/images/add-prompts-light.png"
+                      alt="Manual Add Prompts Interface"
+                      className="w-full h-full object-contain rounded-md shadow-sm"
+                    />
+                  </div>
                 </div>
               </section>
             </div>
@@ -200,7 +241,7 @@ export default function QuickstartPage() {
             <div className="flex items-center justify-between pt-8 border-t border-border">
               <Link href="/" className="flex items-center text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Welcome to Peec AI
+                Welcome to Nudg3
               </Link>
               <Link href="/setup-prompts" className="flex items-center text-muted-foreground hover:text-foreground">
                 Setting up your prompts
@@ -211,25 +252,9 @@ export default function QuickstartPage() {
         </main>
 
         {/* Right Sidebar - Table of Contents */}
-        <aside className="w-64 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden p-6">
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold text-sm mb-4 flex items-center">
-                <div className="mr-2 h-4 w-4 border-2 border-current rounded-sm"></div>
-                On this page
-              </h3>
-              <div className="space-y-2">
-                <a href="#step-1" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Step 1: Set up your Workspace
-                </a>
-                <a href="#step-2" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Step 2: Create your first prompts
-                </a>
-                <a href="#step-3" className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Step 3: Review your Dashboard
-                </a>
-              </div>
-            </div>
+        <aside className="hidden xl:block w-64 border-l border-border bg-card/50 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden">
+          <div className="p-6">
+            <TableOfContents items={tocItems} />
           </div>
         </aside>
       </div>

@@ -19,118 +19,184 @@ export default function Home() {
           <div className="space-y-6">
             <div>
               <p className="text-sm text-muted-foreground mb-2">Get Started</p>
-              <h1 className="text-2xl md:text-4xl font-bold mb-4">Welcome to Peec AI</h1>
+              <h1 className="text-2xl md:text-4xl font-bold mb-4">Welcome to Nudg3</h1>
               <p className="text-base md:text-lg text-muted-foreground mb-8">
-                The #1 AI search analytics tool for marketing teams and
-                agencies.
+                A comprehensive brand visibility and competitive analysis platform providing real-time analytics for brand monitoring and competitive intelligence.
               </p>
-            </div>
-
-            {/* Video Section */}
-            <div className="bg-card border border-border rounded-lg overflow-hidden">
-              <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Product Walkthrough"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
             </div>
 
             {/* Content Sections */}
             <div className="space-y-8">
               <section id="intro">
-                <h2 className="text-2xl font-semibold mb-4">Intro to Peec AI</h2>
+                <h2 className="text-2xl font-semibold mb-4">Platform Overview</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Your audience isn't just using Google anymore. They're asking ChatGPT or Claude for product recommendations, using Perplexity for research, getting answers from Grok, and using AI overviews to learn about topics and compare options.
+                    Nudg3 is a comprehensive brand visibility and competitive analysis platform that provides real-time analytics for brand monitoring, competitive intelligence, and AI-powered insights.
                   </p>
                   <p>
-                    People are having conversations with AI instead of searching with keywords. This means visibility works differently now.
-                  </p>
-                  <p>
-                    Peec AI shows you how your brand appears in AI search.
+                    The platform combines advanced AI models, data visualization, and collaborative tools to help businesses understand their brand performance and competitive landscape.
                   </p>
                 </div>
               </section>
 
-              <section id="what-peec-ai-does">
-                <h2 className="text-2xl font-semibold mb-4">What Peec AI does</h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    We track whether your brand appears when people ask AI tools questions about your industry, products, or the problems you solve.
-                  </p>
-                  <p>
-                    Peec AI works for any business wanting to understand their AI search presence. Individual companies tracking their own visibility or agencies monitoring multiple clients.
-                  </p>
-                  <p className="font-medium text-foreground">
-                    Visibility happens in two ways:
-                  </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4">
-                    <li><strong>Brand mentions:</strong> Your company is named in AI responses.</li>
-                    <li><strong>Source citations:</strong> Your content is used or referenced, even without naming your brand.</li>
-                  </ul>
-                  <p>
-                    We run your prompts daily across multiple AI models. This gives you reliable data on how often you appear compared to competitors.
-                  </p>
+              {/* Product Demo Video */}
+              <section className="my-8">
+                <div className="bg-card border border-border rounded-lg overflow-hidden">
+                  <div className="aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="NUDG3 Product Walkthrough"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
                 </div>
               </section>
 
-              <section id="how-peec-ai-helps">
-                <h2 className="text-2xl font-semibold mb-4">How Peec AI helps</h2>
+              <section id="what-nudg3-does">
+                <h2 className="text-2xl font-semibold mb-4">Core Features</h2>
+                <div className="space-y-6">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:border-purple-500/30 hover:scale-[1.02] cursor-pointer group">
+                      <h3 className="text-lg font-semibold mb-3 group-hover:text-purple-400 transition-colors duration-300">Dashboard Analytics</h3>
+                      <ul className="space-y-2 text-muted-foreground text-sm">
+                        <li>• Real-time brand visibility charts</li>
+                        <li>• Top performing sources analytics</li>
+                        <li>• Advanced filtering by date, models, and tags</li>
+                        <li>• Competitive brand comparison tools</li>
+                      </ul>
+                    </div>
+                    <div className="bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:border-purple-500/30 hover:scale-[1.02] cursor-pointer group">
+                      <h3 className="text-lg font-semibold mb-3 group-hover:text-purple-400 transition-colors duration-300">Brand Intelligence</h3>
+                      <ul className="space-y-2 text-muted-foreground text-sm">
+                        <li>• Monitor brand mentions and sentiment</li>
+                        <li>• Track competitor performance</li>
+                        <li>• Analyze brand positioning over time</li>
+                        <li>• Generate competitive intelligence reports</li>
+                      </ul>
+                    </div>
+                    <div className="bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:border-purple-500/30 hover:scale-[1.02] cursor-pointer group">
+                      <h3 className="text-lg font-semibold mb-3 group-hover:text-purple-400 transition-colors duration-300">AI Models & Prompts</h3>
+                      <ul className="space-y-2 text-muted-foreground text-sm">
+                        <li>• Support for multiple AI models (Claude, GPT-4, Gemini)</li>
+                        <li>• Create and manage custom prompts</li>
+                        <li>• Response analysis and performance tracking</li>
+                        <li>• Historical response data and trends</li>
+                      </ul>
+                    </div>
+                    <div className="bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:border-purple-500/30 hover:scale-[1.02] cursor-pointer group">
+                      <h3 className="text-lg font-semibold mb-3 group-hover:text-purple-400 transition-colors duration-300">Source Analytics</h3>
+                      <ul className="space-y-2 text-muted-foreground text-sm">
+                        <li>• Track performance across data sources</li>
+                        <li>• Detailed usage statistics</li>
+                        <li>• Source reliability scoring</li>
+                        <li>• Data source optimization insights</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="how-nudg3-helps">
+                <h2 className="text-2xl font-semibold mb-4">Key Benefits</h2>
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-start">
                     <span className="font-medium text-foreground mr-2">•</span>
                     <div>
-                      <strong className="text-foreground">Track AI visibility:</strong> See when you're mentioned in relevant conversations across different AI models.
+                      <strong className="text-foreground">Comprehensive Analytics:</strong> Get detailed insights into your brand's performance across multiple channels and metrics.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="font-medium text-foreground mr-2">•</span>
                     <div>
-                      <strong className="text-foreground">Monitor competitors:</strong> Understand who else appears in your space and how often.
+                      <strong className="text-foreground">Competitive Intelligence:</strong> Compare your brand against competitors with detailed visibility scores and positioning analysis.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="font-medium text-foreground mr-2">•</span>
                     <div>
-                      <strong className="text-foreground">Find citation opportunities:</strong> Discover which sources AI models trust and reference.
+                      <strong className="text-foreground">AI-Powered Insights:</strong> Leverage multiple AI models to analyze prompts and generate intelligent business insights.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="font-medium text-foreground mr-2">•</span>
                     <div>
-                      <strong className="text-foreground">Spot content gaps:</strong> Identify when you're cited as a source but not mentioned as a brand.
+                      <strong className="text-foreground">Real-Time Monitoring:</strong> Track brand mentions, sentiment, and performance changes as they happen.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="font-medium text-foreground mr-2">•</span>
                     <div>
-                      <strong className="text-foreground">Track trends over time:</strong> Monitor how your visibility changes as AI models evolve.
+                      <strong className="text-foreground">Team Collaboration:</strong> Manage workspaces, teams, and user permissions with comprehensive collaboration tools.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="font-medium text-foreground mr-2">•</span>
                     <div>
-                      <strong className="text-foreground">Make data-driven decisions:</strong> Use probability-based insights for your strategy.
+                      <strong className="text-foreground">Advanced Filtering:</strong> Filter data by time ranges, AI models, tags, and brands to get precise insights.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="font-medium text-foreground mr-2">•</span>
                     <div>
-                      <strong className="text-foreground">Understand AI behavior:</strong> Learn which content types and sources perform best.
+                      <strong className="text-foreground">Data Visualization:</strong> Interactive charts and tables for better understanding of trends and patterns.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="font-medium text-foreground mr-2">•</span>
                     <div>
-                      <strong className="text-foreground">Optimize your approach:</strong> Focus efforts on prompts and topics that matter most.
+                      <strong className="text-foreground">Scalable Infrastructure:</strong> Built with modern technology stack to handle enterprise-level data and analytics.
                     </div>
                   </li>
                 </ul>
+              </section>
+
+              <section id="technology-stack">
+                <h2 className="text-2xl font-semibold mb-4">Technology Stack</h2>
+                <div className="bg-card border border-border rounded-lg p-6">
+                  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 text-sm">
+                    <div>
+                      <h4 className="font-medium text-foreground mb-2">Frontend</h4>
+                      <ul className="space-y-1 text-muted-foreground">
+                        <li>Next.js 15</li>
+                        <li>React 19</li>
+                        <li>TypeScript</li>
+                        <li>Tailwind CSS</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-foreground mb-2">UI Components</h4>
+                      <ul className="space-y-1 text-muted-foreground">
+                        <li>Radix UI</li>
+                        <li>TanStack Table</li>
+                        <li>Recharts</li>
+                        <li>React Hook Form</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-foreground mb-2">Authentication</h4>
+                      <ul className="space-y-1 text-muted-foreground">
+                        <li>NextAuth.js</li>
+                        <li>Secure sessions</li>
+                        <li>Role-based access</li>
+                        <li>Workspace permissions</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-foreground mb-2">Features</h4>
+                      <ul className="space-y-1 text-muted-foreground">
+                        <li>Real-time updates</li>
+                        <li>Data visualization</li>
+                        <li>Export capabilities</li>
+                        <li>Responsive design</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </section>
             </div>
 

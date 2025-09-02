@@ -59,7 +59,7 @@ export default function SetupPromptsPage() {
               </p>
 
               {/* 1. Use prompt suggestions */}
-              <div id="use-suggestions" className="space-y-4">
+              <section id="use-suggestions" className="space-y-4">
                 <h3 className="text-xl font-semibold">1. Use prompt suggestions</h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>Our suggestion engine proposes prompts based on:</p>
@@ -97,10 +97,10 @@ export default function SetupPromptsPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
 
               {/* 2. Add prompts manually */}
-              <div id="add-manually" className="space-y-4">
+              <section id="add-manually" className="space-y-4">
                 <h3 className="text-xl font-semibold">2. Add prompts manually</h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
@@ -131,10 +131,10 @@ export default function SetupPromptsPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
 
               {/* 3. Upload prompts via CSV */}
-              <div id="upload-csv" className="space-y-4">
+              <section id="upload-csv" className="space-y-4">
                 <h3 className="text-xl font-semibold">3. Upload prompts via CSV</h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>You can bulk import prompts by uploading a CSV file.</p>
@@ -197,7 +197,7 @@ export default function SetupPromptsPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
             </section>
 
             {/* Tagging your prompts */}

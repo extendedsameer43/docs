@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Peec AI Documentation",
-  description: "The #1 AI search analytics tool for marketing teams and agencies.",
+  title: "NUDG3 Documentation",
+  description: "A powerful AI-driven platform for brand intelligence and competitive analysis.",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export const viewport = {

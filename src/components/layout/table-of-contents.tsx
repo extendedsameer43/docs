@@ -3,6 +3,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import { List } from "lucide-react";
 
 export interface TocItem {
   title: string;
@@ -16,9 +17,10 @@ interface TableOfContentsProps {
 }
 
 const defaultTocItems = [
-  { title: "Intro to Peec AI", href: "#intro", level: 0 },
-  { title: "What Peec AI does", href: "#what-peec-ai-does", level: 0 },
-  { title: "How Peec AI helps", href: "#how-peec-ai-helps", level: 0 },
+  { title: "Platform Overview", href: "#intro", level: 0 },
+  { title: "Core Features", href: "#what-nudg3-does", level: 0 },
+  { title: "Key Benefits", href: "#how-nudg3-helps", level: 0 },
+  { title: "Technology Stack", href: "#technology-stack", level: 0 },
 ];
 
 export function TableOfContents({ className, items = defaultTocItems }: TableOfContentsProps) {
@@ -62,7 +64,7 @@ export function TableOfContents({ className, items = defaultTocItems }: TableOfC
       <div className="space-y-4">
         <div>
           <h3 className="font-semibold text-sm mb-4 flex items-center">
-            <div className="mr-2 h-4 w-4 border-2 border-current rounded-sm"></div>
+            <List className="mr-2 h-4 w-4" />
             On this page
           </h3>
           <ScrollArea className="h-[calc(100vh-12rem)]">

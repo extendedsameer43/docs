@@ -39,7 +39,7 @@ export default function AddCompetitorsPage() {
               </p>
 
               {/* 1. Use suggested competitors */}
-              <div id="use-suggested-competitors" className="space-y-4">
+              <section id="use-suggested-competitors" className="space-y-4">
                 <h3 className="text-xl font-semibold">1. Use suggested competitors</h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
@@ -81,10 +81,10 @@ export default function AddCompetitorsPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
 
               {/* 2. Add competitors manually */}
-              <div id="add-competitors-manually" className="space-y-4">
+              <section id="add-competitors-manually" className="space-y-4">
                 <h3 className="text-xl font-semibold">2. Add competitors manually</h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
@@ -118,7 +118,7 @@ export default function AddCompetitorsPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
             </section>
 
             {/* Call-to-action */}

@@ -4,285 +4,238 @@ import { TableOfContents, TocItem } from "@/components/layout/table-of-contents"
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-const understandingMetricsTocItems: TocItem[] = [
-  { title: "Brand visibility vs source visibility", href: "#brand-visibility-vs-source-visibility", level: 0 },
-  { title: "Brand metrics", href: "#brand-metrics", level: 0 },
-  { title: "Position", href: "#position", level: 1 },
-  { title: "Sentiment", href: "#sentiment", level: 1 },
-  { title: "Visibility score", href: "#visibility-score", level: 1 },
-  { title: "Source metrics", href: "#source-metrics", level: 0 },
-  { title: "Used", href: "#used", level: 1 },
-  { title: "Average citations", href: "#average-citations", level: 1 },
-  { title: "Where to analyze your metrics", href: "#where-to-analyze-metrics", level: 0 },
+const metricsTocItems: TocItem[] = [
+  { title: "Metrics Overview", href: "#overview", level: 0 },
+  { title: "Brand Performance Metrics", href: "#brand-metrics", level: 0 },
+  { title: "Competitive Intelligence Metrics", href: "#competitive-metrics", level: 0 },
+  { title: "AI Response Metrics", href: "#ai-metrics", level: 0 },
+  { title: "Source Analytics", href: "#source-metrics", level: 0 },
+  { title: "Interpreting Your Data", href: "#interpreting-data", level: 0 },
 ];
 
-export default function UnderstandingMetricsPage() {
+export default function MetricsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <div className="flex">
-        {/* Left Sidebar */}
-        <aside className="w-64 border-r border-border bg-card/50 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden">
+        {/* Left Sidebar - Hidden on mobile */}
+        <aside className="hidden md:block w-64 border-r border-border bg-card/50 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden">
           <Sidebar />
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 px-8 py-8 max-w-4xl">
+        <main className="flex-1 px-4 md:px-8 py-6 md:py-8 max-w-4xl">
           <div className="space-y-6">
             <div>
-              <p className="text-sm text-muted-foreground mb-2">Get Started</p>
-              <h1 className="text-4xl font-bold mb-4">Understanding your metrics</h1>
-              <p className="text-lg text-muted-foreground mb-8">
-                Now that you've set up prompts and competitors, let's understand what the data means.
+              <p className="text-sm text-muted-foreground mb-2">Platform Features</p>
+              <h1 className="text-2xl md:text-4xl font-bold mb-4">Understanding Metrics</h1>
+              <p className="text-base md:text-lg text-muted-foreground mb-8">
+                Learn how to interpret and act on the key performance metrics in your Nudg3 analytics dashboard.
               </p>
             </div>
 
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Peec AI tracks two main types of visibility: when your brand is mentioned and when your content is used as a source.
-              </p>
-              <p>
-                Each type has different metrics that help you understand your performance.
-              </p>
+            {/* Content Sections */}
+            <div className="space-y-8">
+              <section id="overview">
+                <h2 className="text-2xl font-semibold mb-4">Metrics Overview</h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    Nudg3 tracks multiple dimensions of brand performance and competitive intelligence. Understanding these metrics helps you make informed decisions about your brand strategy and market positioning.
+                  </p>
+                  <p>
+                    Each metric provides unique insights into different aspects of your brand's visibility and performance in the market.
+                  </p>
+                </div>
+              </section>
+
+              <section id="brand-metrics">
+                <h2 className="text-2xl font-semibold mb-4">Brand Performance Metrics</h2>
+                <div className="space-y-6">
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Brand Visibility Score</h3>
+                    <p className="text-muted-foreground mb-3">
+                      Your primary performance indicator that measures how often your brand appears across all monitored channels and contexts.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Calculated as a percentage of total possible appearances</li>
+                      <li>• Updates in real-time as new data is collected</li>
+                      <li>• Higher scores indicate better brand visibility</li>
+                      <li>• Benchmarked against your competitive set</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Brand Sentiment</h3>
+                    <p className="text-muted-foreground mb-3">
+                      Measures the overall sentiment associated with your brand mentions across all channels.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Positive, neutral, or negative sentiment classification</li>
+                      <li>• Sentiment trends over time</li>
+                      <li>• Context analysis for sentiment drivers</li>
+                      <li>• Comparison with competitor sentiment</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Market Share</h3>
+                    <p className="text-muted-foreground mb-3">
+                      Your brand's share of voice compared to competitors in your industry or market segment.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Percentage of total brand mentions in your category</li>
+                      <li>• Historical trend analysis</li>
+                      <li>• Identification of market leaders and challengers</li>
+                      <li>• Market share growth or decline indicators</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section id="competitive-metrics">
+                <h2 className="text-2xl font-semibold mb-4">Competitive Intelligence Metrics</h2>
+                <div className="space-y-6">
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Competitive Position</h3>
+                    <p className="text-muted-foreground mb-3">
+                      How your brand ranks against direct competitors across key performance indicators.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Ranking position within your competitive set</li>
+                      <li>• Performance gaps between you and market leaders</li>
+                      <li>• Areas where you outperform competitors</li>
+                      <li>• Opportunities for competitive advantage</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Share of Voice</h3>
+                    <p className="text-muted-foreground mb-3">
+                      The percentage of industry conversation that mentions your brand versus competitors.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Brand mention frequency compared to competitors</li>
+                      <li>• Topic and context-specific share of voice</li>
+                      <li>• Trending topics where your brand appears</li>
+                      <li>• Competitor activity and mention patterns</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Competitive Gaps</h3>
+                    <p className="text-muted-foreground mb-3">
+                      Areas where competitors are outperforming your brand and opportunities for improvement.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Topics or channels where competitors lead</li>
+                      <li>• Content gaps in your strategy</li>
+                      <li>• Audience segments where you're underrepresented</li>
+                      <li>• Strategic opportunities for growth</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section id="ai-metrics">
+                <h2 className="text-2xl font-semibold mb-4">AI Response Metrics</h2>
+                <div className="space-y-6">
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Response Performance</h3>
+                    <p className="text-muted-foreground mb-3">
+                      How well your brand and content perform in AI model responses across different prompts and contexts.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Brand mention frequency in AI responses</li>
+                      <li>• Response relevance and context quality</li>
+                      <li>• Performance across different AI models</li>
+                      <li>• Prompt-specific performance analysis</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Model Comparison</h3>
+                    <p className="text-muted-foreground mb-3">
+                      Comparative analysis of your brand's performance across different AI models and platforms.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Performance variations between AI models</li>
+                      <li>• Model-specific strengths and weaknesses</li>
+                      <li>• Optimization opportunities for each platform</li>
+                      <li>• Trending performance patterns</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section id="source-metrics">
+                <h2 className="text-2xl font-semibold mb-4">Source Analytics</h2>
+                <div className="space-y-6">
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Source Performance</h3>
+                    <p className="text-muted-foreground mb-3">
+                      Analytics on the data sources contributing to your brand insights and their reliability.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Source contribution to overall analytics</li>
+                      <li>• Data quality and reliability scores</li>
+                      <li>• Source coverage and completeness</li>
+                      <li>• Performance trends over time</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground">Usage Statistics</h3>
+                    <p className="text-muted-foreground mb-3">
+                      Detailed statistics on how different data sources are being utilized in your analytics.
+                    </p>
+                    <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                      <li>• Source utilization rates</li>
+                      <li>• Data volume and frequency metrics</li>
+                      <li>• Cost per insight analysis</li>
+                      <li>• ROI metrics for different sources</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section id="interpreting-data">
+                <h2 className="text-2xl font-semibold mb-4">Interpreting Your Data</h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    Understanding what your metrics mean and how to act on them is crucial for effective brand management and competitive strategy.
+                  </p>
+
+                  <div className="bg-card border border-border rounded-lg p-6">
+                    <h3 className="font-semibold text-foreground mb-3">Key Interpretation Guidelines:</h3>
+                    <ul className="space-y-2 text-sm">
+                      <li><strong className="text-foreground">Rising Visibility:</strong> Indicates successful content strategy or increased brand awareness</li>
+                      <li><strong className="text-foreground">Declining Sentiment:</strong> May signal PR issues or competitive threats that need attention</li>
+                      <li><strong className="text-foreground">Competitive Gaps:</strong> Reveal opportunities for market expansion or strategy adjustment</li>
+                      <li><strong className="text-foreground">Source Quality Issues:</strong> Suggest need for data source optimization or diversification</li>
+                      <li><strong className="text-foreground">AI Model Variations:</strong> Highlight platform-specific optimization opportunities</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
             </div>
-
-            {/* Brand visibility vs source visibility */}
-            <section id="brand-visibility-vs-source-visibility" className="space-y-4">
-              <h2 className="text-2xl font-semibold mb-4">Brand visibility vs source visibility</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>Understanding the difference between these two is important:</p>
-                <ul className="space-y-3 ml-4">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <div>
-                      <strong className="text-foreground">Brand visibility:</strong> Your brand is explicitly mentioned in the response.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <div>
-                      <strong className="text-foreground">Source visibility:</strong> Your domain or content was used or cited — even if your brand isn't named.
-                    </div>
-                  </li>
-                </ul>
-                <p>
-                  You can be visible as a source without being visible as a brand. And you can be mentioned as a brand without your website being used.
-                </p>
-                <p>
-                  Peec AI tracks both so you can spot gaps. For example:
-                </p>
-                <ul className="space-y-3 ml-4">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>If you're cited often but never mentioned, it might mean your brand lacks authority or name recognition.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>If you're mentioned often but never cited, AI might associate your name with a topic, but not trust your content as a reference.</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
-
-            {/* Brand metrics */}
-            <section id="brand-metrics" className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-4">Brand metrics</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                These appear on your <strong>Dashboard</strong> and throughout Peec AI:
-              </p>
-
-              {/* Position */}
-              <div id="position" className="space-y-4">
-                <h3 className="text-xl font-semibold">Position</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    Average ranking of your brand in the answer (e.g., mentioned first, second, etc.).
-                  </p>
-                </div>
-
-                {/* Position screenshot */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
-                  <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
-                        <span className="text-2xl">📊</span>
-                      </div>
-                      <p>Position Metrics Dashboard Screenshot</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Sentiment */}
-              <div id="sentiment" className="space-y-4">
-                <h3 className="text-xl font-semibold">Sentiment</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    The sentiment score measures the overall tone of a prompt's response on a scale from 0 to 100. Most scores fall between 65 and 85. A score near 85 indicates clearly positive language — words like "trusted," "reliable," or "innovative." Around 65 represents neutral or factual language with little emotional tone. Anything below 65 generally signals language that could be critical or negative and typically warrants a closer look.
-                  </p>
-                </div>
-
-                {/* Sentiment screenshot */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
-                  <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
-                        <span className="text-2xl">😊</span>
-                      </div>
-                      <p>Sentiment Analysis Dashboard Screenshot</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Visibility score */}
-              <div id="visibility-score" className="space-y-4">
-                <h3 className="text-xl font-semibold">Visibility score</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    Percentage of chats (AI responses) where your brand is mentioned.
-                  </p>
-                </div>
-
-                {/* Visibility score screenshot */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
-                  <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
-                        <span className="text-2xl">📈</span>
-                      </div>
-                      <p>Visibility Score Dashboard Screenshot</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Source metrics */}
-            <section id="source-metrics" className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-4">Source metrics</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                You'll see basic source data on your <strong>Dashboard</strong>, with more detailed information available on the <strong>Sources</strong> page:
-              </p>
-
-              {/* Used */}
-              <div id="used" className="space-y-4">
-                <h3 className="text-xl font-semibold">Used</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    Percentage of responses where your content contributed to the AI's answer (even without a citation). Visible on both <strong>Dashboard</strong> and <strong>Sources</strong> page.
-                  </p>
-                </div>
-
-                {/* Used screenshot */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
-                  <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
-                        <span className="text-2xl">📋</span>
-                      </div>
-                      <p>Used Metric Dashboard Screenshot</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Average citations */}
-              <div id="average-citations" className="space-y-4">
-                <h3 className="text-xl font-semibold">Average citations</h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    Average number of times a specific source is explicitly cited within a single response. For example, one AI response might cite the same source 3 times. Available on the <strong>Sources</strong> page.
-                  </p>
-                </div>
-
-                {/* Average citations screenshot */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden my-6">
-                  <div className="aspect-video bg-muted/20 flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center">
-                        <span className="text-2xl">🔗</span>
-                      </div>
-                      <p>Average Citations Sources Page Screenshot</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-muted/50 border border-border rounded-lg p-4 text-muted-foreground">
-                  <strong>Note:</strong> A source can be used silently (informing the AI's answer) or cited visibly (appearing in the response). Your domain or URLs can contribute to responses even when not explicitly referenced.
-                </div>
-              </div>
-            </section>
-
-            {/* Call-to-action */}
-            <div className="border border-border rounded-lg p-6 my-8">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <span className="text-2xl">📊</span>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-lg mb-2">Learn more: Understand your sources</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Dive deeper into source analysis with URL and domain views.
-                  </p>
-                </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground" />
-              </div>
-            </div>
-
-            {/* Where to analyze your metrics */}
-            <section id="where-to-analyze-metrics" className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-4">Where to analyze your metrics</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>You can view your brand and source metrics at different levels:</p>
-                <ul className="space-y-3 ml-4">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <div>
-                      <strong className="text-foreground">Dashboard:</strong> Aggregated view across all prompts and competitors.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <div>
-                      <strong className="text-foreground">Prompts page:</strong> Individual prompt performance and trends.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <div>
-                      <strong className="text-foreground">Sources page:</strong> Source analysis with URL and domain views.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <div>
-                      <strong className="text-foreground">By tags:</strong> Filter any view by prompt categories to analyze specific themes.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </section>
 
             {/* Navigation */}
             <div className="flex items-center justify-between pt-8 border-t border-border">
-              <Link href="/add-competitors" className="flex items-center text-muted-foreground hover:text-foreground">
+              <Link href="/dashboard" className="flex items-center text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Adding competitors
+                Dashboard Analytics
               </Link>
               <Link href="/sources" className="flex items-center text-muted-foreground hover:text-foreground">
-                Understanding sources
+                Source Analytics
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
           </div>
         </main>
 
-        {/* Right Sidebar - Table of Contents */}
-        <aside className="w-64 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden p-6">
-          <TableOfContents items={understandingMetricsTocItems} />
+        {/* Right Sidebar - Table of Contents - Hidden on mobile and tablet */}
+        <aside className="hidden xl:block w-64 h-[calc(100vh-3.5rem)] sticky top-14 overflow-hidden p-6">
+          <TableOfContents items={metricsTocItems} />
         </aside>
       </div>
     </div>

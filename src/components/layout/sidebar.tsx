@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { Rocket, Settings, Users, FileText, Lightbulb, BarChart3 } from "lucide-react";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export function Sidebar({ className }: SidebarProps) {
     <div className={cn("pb-12", className)}>
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
-          <ScrollArea className="h-[calc(100vh-8rem)]">
+          <div className="h-[calc(100vh-8rem)] overflow-y-auto">
             <div className="space-y-6">
               {navigation.map((section) => (
                 <div key={section.title}>
@@ -67,7 +67,7 @@ export function Sidebar({ className }: SidebarProps) {
                 </div>
               ))}
             </div>
-          </ScrollArea>
+          </div>
         </div>
       </div>
     </div>
